@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GST Calculator - Business AI Tools</title>
+    <meta name="description" content="GST calculator for India to calculate GST amounts using standard slabs. Supports forward and reverse GST calculation with clear assumptions.">
     <link rel="stylesheet" href="styles.css">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "GST Calculator (India)",
+      "@id": "https://gst-calculator.pages.dev/#gst-calculator",
+      "name": "GST Calculator (India) - Business AI Tools",
       "description": "Simple GST calculator for India supporting inclusive and exclusive GST calculations using standard GST slabs",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
       "url": "https://gst-calculator.pages.dev/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Business AI Tools",
+        "url": "https://gst-calculator.pages.dev/"
+      },
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "INR"
       },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "isAccessibleForFree": true,
       "featureList": [
         "GST calculation for India",
         "Inclusive and exclusive GST support",
-        "Supports 5%, 12%, 18%, and 28% GST slabs"
+        "Supports 0%, 5%, 12%, 18%, and 28% GST slabs"
       ]
     }
     </script>
@@ -54,7 +66,15 @@
           "name": "Which GST rates are supported?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This calculator supports standard Indian GST slabs of 5%, 12%, 18%, and 28%."
+            "text": "This calculator supports standard Indian GST slabs of 0%, 5%, 12%, 18%, and 28%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this GST calculator suitable for filing returns?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This calculator is for estimation and understanding purposes only. Always consult a qualified professional for GST filing."
           }
         }
       ]
@@ -147,22 +167,5 @@
                 <li><strong>18%:</strong> Standard rate (hair oil, toothpaste, capital goods)</li>
                 <li><strong>28%:</strong> Luxury and demerit goods (cars, tobacco, cement)</li>
             </ul>
-        </div>
-
-        <div class="api-section">
-            <h3>API Usage for AI Integration</h3>
-            <p>This calculator can be integrated with AI systems. The calculation logic is available in the JavaScript code.</p>
-            <div class="api-example">
-                <h4>Example API-like Usage:</h4>
-                <pre>
-// Forward calculation
-const gstAmount = basePrice * (gstRate / 100);
-const totalPrice = basePrice + gstAmount;
-
-// Reverse calculation
-const basePrice = totalPrice / (1 + gstRate / 100);
-const gstAmount = totalPrice - basePrice;
-                </pre>
-            </div>
         </div>
     </div>
