@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator - Business AI Tools</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GST Calculator</h1>
+            <p>Calculate Goods and Services Tax for Indian businesses</p>
+        </header>
+
+        <div class="calculator-section">
+            <div class="calc-card">
+                <h2>Forward Calculation (Tax Exclusive)</h2>
+                <p>Calculate GST amount and total price from base price</p>
+
+                <div class="input-group">
+                    <label for="basePrice">Base Price (₹):</label>
+                    <input type="number" id="basePrice" step="0.01" placeholder="Enter base price">
+                </div>
+
+                <div class="input-group">
+                    <label for="gstRate">GST Rate (%):</label>
+                    <select id="gstRate">
+                        <option value="0">0% (Exempted)</option>
+                        <option value="5">5% (Essential goods)</option>
+                        <option value="12">12% (Standard rate)</option>
+                        <option value="18" selected>18% (Standard rate)</option>
+                        <option value="28">28% (Luxury goods)</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateForward()">Calculate</button>
+
+                <div class="results" id="forwardResults" style="display: none;">
+                    <div class="result-item">
+                        <span class="label">GST Amount:</span>
+                        <span class="value" id="gstAmount">₹0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Total Price:</span>
+                        <span class="value" id="totalPrice">₹0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calc-card">
+                <h2>Reverse Calculation (Tax Inclusive)</h2>
+                <p>Calculate base price from total price including GST</p>
+
+                <div class="input-group">
+                    <label for="totalPriceInput">Total Price (₹):</label>
+                    <input type="number" id="totalPriceInput" step="0.01" placeholder="Enter total price">
+                </div>
+
+                <div class="input-group">
+                    <label for="gstRateReverse">GST Rate (%):</label>
+                    <select id="gstRateReverse">
+                        <option value="0">0% (Exempted)</option>
+                        <option value="5">5% (Essential goods)</option>
+                        <option value="12">12% (Standard rate)</option>
+                        <option value="18" selected>18% (Standard rate)</option>
+                        <option value="28">28% (Luxury goods)</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateReverse()">Calculate</button>
+
+                <div class="results" id="reverseResults" style="display: none;">
+                    <div class="result-item">
+                        <span class="label">Base Price:</span>
+                        <span class="value" id="basePriceResult">₹0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">GST Amount:</span>
+                        <span class="value" id="gstAmountResult">₹0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>GST Rate Categories (India)</h3>
+            <ul>
+                <li><strong>0%:</strong> Essential goods (milk, bread, educational services)</li>
+                <li><strong>5%:</strong> Essential items (spices, coal, life-saving drugs)</li>
+                <li><strong>12%:</strong> Standard rate items (computers, processed food)</li>
+                <li><strong>18%:</strong> Standard rate (hair oil, toothpaste, capital goods)</li>
+                <li><strong>28%:</strong> Luxury and demerit goods (cars, tobacco, cement)</li>
+            </ul>
+        </div>
+
+        <div class="api-section">
+            <h3>API Usage for AI Integration</h3>
+            <p>This calculator can be integrated with AI systems. The calculation logic is available in the JavaScript code.</p>
+            <div class="api-example">
+                <h4>Example API-like Usage:</h4>
+                <pre>
+// Forward calculation
+const gstAmount = basePrice * (gstRate / 100);
+const totalPrice = basePrice + gstAmount;
+
+// Reverse calculation
+const basePrice = totalPrice / (1 + gstRate / 100);
+const gstAmount = totalPrice - basePrice;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
