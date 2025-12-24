@@ -5,6 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GST Calculator - Business AI Tools</title>
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GST Calculator (India)",
+      "description": "Simple GST calculator for India supporting inclusive and exclusive GST calculations using standard GST slabs",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://gst-calculator.pages.dev/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "GST calculation for India",
+        "Inclusive and exclusive GST support",
+        "Supports 5%, 12%, 18%, and 28% GST slabs"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this GST calculator legally binding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This GST calculator is for estimation purposes only and should not be considered legally binding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this GST calculator include CGST and SGST split?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This calculator shows the total GST amount and does not split CGST and SGST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which GST rates are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This calculator supports standard Indian GST slabs of 5%, 12%, 18%, and 28%."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -15,7 +70,7 @@
 
         <div class="calculator-section">
             <div class="calc-card">
-                <h2>Forward Calculation (Tax Exclusive)</h2>
+                <h2>Forward Calculation</h2>
                 <p>Calculate GST amount and total price from base price</p>
 
                 <div class="input-group">
@@ -49,7 +104,7 @@
             </div>
 
             <div class="calc-card">
-                <h2>Reverse Calculation (Tax Inclusive)</h2>
+                <h2>Reverse Calculation</h2>
                 <p>Calculate base price from total price including GST</p>
 
                 <div class="input-group">
@@ -111,7 +166,3 @@ const gstAmount = totalPrice - basePrice;
             </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
