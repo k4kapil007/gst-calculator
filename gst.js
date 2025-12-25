@@ -76,9 +76,8 @@ class GSTCalculator {
         this.gstRates = {
             exempted: 0,
             essential: 5,
-            standard_low: 12,
             standard: 18,
-            luxury: 28
+            luxury: 40
         };
     }
 

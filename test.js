@@ -6,9 +6,8 @@ class GSTCalculator {
         this.gstRates = {
             exempted: 0,
             essential: 5,
-            standard_low: 12,
             standard: 18,
-            luxury: 28
+            luxury: 40
         };
     }
 
@@ -63,7 +62,7 @@ function runTests() {
     const forwardTests = [
         { input: { basePrice: 1000, gstRate: 18 }, expected: { gstAmount: 180, totalPrice: 1180 } },
         { input: { basePrice: 500, gstRate: 5 }, expected: { gstAmount: 25, totalPrice: 525 } },
-        { input: { basePrice: 2000, gstRate: 28 }, expected: { gstAmount: 560, totalPrice: 2560 } },
+        { input: { basePrice: 2000, gstRate: 40 }, expected: { gstAmount: 800, totalPrice: 2800 } },
         { input: { basePrice: 100, gstRate: 0 }, expected: { gstAmount: 0, totalPrice: 100 } },
     ];
 
@@ -92,7 +91,7 @@ function runTests() {
     const reverseTests = [
         { input: { totalPrice: 1180, gstRate: 18 }, expected: { basePrice: 1000, gstAmount: 180 } },
         { input: { totalPrice: 525, gstRate: 5 }, expected: { basePrice: 500, gstAmount: 25 } },
-        { input: { totalPrice: 2560, gstRate: 28 }, expected: { basePrice: 2000, gstAmount: 560 } },
+        { input: { totalPrice: 2800, gstRate: 40 }, expected: { basePrice: 2000, gstAmount: 800 } },
         { input: { totalPrice: 100, gstRate: 0 }, expected: { basePrice: 100, gstAmount: 0 } },
     ];
 
@@ -145,8 +144,8 @@ function runTests() {
     console.log('\n🔄 Round-trip Tests:');
     const roundTripTests = [
         { basePrice: 1234.56, gstRate: 18 },
-        { basePrice: 999.99, gstRate: 12 },
-        { basePrice: 5000, gstRate: 28 },
+        { basePrice: 999.99, gstRate: 5 },
+        { basePrice: 5000, gstRate: 40 },
     ];
 
     roundTripTests.forEach((test, index) => {

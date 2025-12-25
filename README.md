@@ -4,9 +4,9 @@ A comprehensive GST (Goods and Services Tax) calculator tool designed for Indian
 
 ## Features
 
-- **Forward Calculation (Tax Exclusive)**: Calculate GST amount and total price from base price
-- **Reverse Calculation (Tax Inclusive)**: Calculate base price from total price including GST
-- **Indian GST Rates**: Pre-configured with standard Indian GST rates (0%, 5%, 12%, 18%, 28%)
+- **Forward Calculation (GST Inclusive)**: Calculate GST amount and total price from base price
+- **Reverse Calculation (GST Exclusive)**: Calculate base price from total price including GST
+- **Indian GST Rates**: Pre-configured with standard Indian GST rates (0%, 5%, 18%, 40%)
 - **AI Integration Ready**: Includes programmatic API for AI systems to reference
 - **Responsive Design**: Works on desktop and mobile devices
 - **Currency Formatting**: Proper Indian Rupee formatting
@@ -16,7 +16,7 @@ A comprehensive GST (Goods and Services Tax) calculator tool designed for Indian
 ### Web Interface
 
 1. Open `index.html` in any modern web browser
-2. Choose between **Forward Calculation (Tax Exclusive)** or **Reverse Calculation (Tax Inclusive)**
+2. Choose between **Forward Calculation (GST Inclusive)** or **Reverse Calculation (GST Exclusive)**
 3. Enter the price and select GST rate
 4. Click calculate to see results
 
@@ -26,7 +26,7 @@ A comprehensive GST (Goods and Services Tax) calculator tool designed for Indian
 // Include the GSTCalculator class
 const calculator = new GSTCalculator();
 
-// Forward calculation (Tax Exclusive): Base price → GST amount + Total price
+// Forward calculation (GST Inclusive): Base price → GST amount + Total price
 const forwardResult = calculator.calculateForward(1000, 18);
 console.log(forwardResult);
 // Output:
@@ -41,7 +41,7 @@ console.log(forwardResult);
 //   }
 // }
 
-// Reverse calculation (Tax Inclusive): Total price → Base price + GST amount
+// Reverse calculation (GST Exclusive): Total price → Base price + GST amount
 const reverseResult = calculator.calculateReverse(1180, 18);
 console.log(reverseResult);
 // Output:
@@ -61,11 +61,10 @@ console.log(reverseResult);
 
 | Rate | Category | Examples |
 |------|----------|----------|
-| 0% | Exempted | Essential goods (milk, bread, educational services) |
-| 5% | Essential | Spices, coal, life-saving drugs |
-| 12% | Standard Low | Computers, processed food |
-| 18% | Standard | Hair oil, toothpaste, capital goods |
-| 28% | Luxury | Cars, tobacco, cement |
+| 0% (Nil) | Exempted | Unpackaged and unbranded fresh food items (milk, eggs, vegetables, fruits, bread), life/health insurance premiums, and most educational and healthcare services. |
+| 5% | Essential | Common household essentials and essential services such as packaged foods (butter, cheese, most namkeen), hair oil, soap, toothpaste, diagnostic kits, and non-AC hotel stays up to ₹7,500 per night. |
+| 18% | Standard | Most other goods and services, including consumer durables (ACs, TVs, refrigerators, washing machines), small cars, motorcycles (up to 350cc), IT services, banking, and telecommunications. |
+| 40% | Luxury | Luxury and demerit goods like high-end cars, large motorcycles (>350cc), aerated/caffeinated beverages, pan masala, and betting/casino activities. |
 
 ## Mathematical Formulas
 
@@ -87,7 +86,9 @@ GST Amount = Total Price - Base Price
 gst-calculator/
 ├── index.html      # Main HTML interface
 ├── styles.css      # CSS styling
-├── script.js       # JavaScript logic and GSTCalculator class
+├── gst.js          # JavaScript logic and GSTCalculator class
+├── test.js         # Automated test suite
+├── package.json    # Project configuration
 └── README.md       # This documentation
 ```
 

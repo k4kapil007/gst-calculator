@@ -35,7 +35,7 @@
       "featureList": [
         "GST calculation for India",
         "Inclusive and exclusive GST support",
-        "Supports 0%, 5%, 12%, 18%, and 28% GST slabs"
+        "Supports 0%, 5%, 18%, and 40% GST slabs"
       ]
     }
     </script>
@@ -66,7 +66,7 @@
           "name": "Which GST rates are supported?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This calculator supports standard Indian GST slabs of 0%, 5%, 12%, 18%, and 28%."
+            "text": "This calculator supports standard Indian GST slabs of 0%, 5%, 18%, and 40%."
           }
         },
         {
@@ -90,7 +90,7 @@
 
         <div class="calculator-section">
             <div class="calc-card">
-                <h2>Forward Calculation</h2>
+                <h2>Forward Calculation (GST Inclusive)</h2>
                 <p>Calculate GST amount and total price from base price</p>
 
                 <div class="input-group">
@@ -101,11 +101,10 @@
                 <div class="input-group">
                     <label for="gstRate">GST Rate (%):</label>
                     <select id="gstRate">
-                        <option value="0">0% (Exempted)</option>
+                        <option value="0">0% (Nil)</option>
                         <option value="5">5% (Essential goods)</option>
-                        <option value="12">12% (Standard rate)</option>
                         <option value="18" selected>18% (Standard rate)</option>
-                        <option value="28">28% (Luxury goods)</option>
+                        <option value="40">40% (Luxury goods)</option>
                     </select>
                 </div>
 
@@ -124,7 +123,7 @@
             </div>
 
             <div class="calc-card">
-                <h2>Reverse Calculation</h2>
+                <h2>Reverse Calculation (GST Exclusive)</h2>
                 <p>Calculate base price from total price including GST</p>
 
                 <div class="input-group">
@@ -135,11 +134,10 @@
                 <div class="input-group">
                     <label for="gstRateReverse">GST Rate (%):</label>
                     <select id="gstRateReverse">
-                        <option value="0">0% (Exempted)</option>
+                        <option value="0">0% (Nil)</option>
                         <option value="5">5% (Essential goods)</option>
-                        <option value="12">12% (Standard rate)</option>
                         <option value="18" selected>18% (Standard rate)</option>
-                        <option value="28">28% (Luxury goods)</option>
+                        <option value="40">40% (Luxury goods)</option>
                     </select>
                 </div>
 
@@ -161,11 +159,14 @@
         <div class="info-section">
             <h3>GST Rate Categories (India)</h3>
             <ul>
-                <li><strong>0%:</strong> Essential goods (milk, bread, educational services)</li>
-                <li><strong>5%:</strong> Essential items (spices, coal, life-saving drugs)</li>
-                <li><strong>12%:</strong> Standard rate items (computers, processed food)</li>
-                <li><strong>18%:</strong> Standard rate (hair oil, toothpaste, capital goods)</li>
-                <li><strong>28%:</strong> Luxury and demerit goods (cars, tobacco, cement)</li>
+                <li><strong>0% (Nil):</strong> Unpackaged and unbranded fresh food items (milk, eggs, vegetables, fruits, bread), life/health insurance premiums, and most educational and healthcare services.</li>
+                <li><strong>5%:</strong> Common household essentials and essential services such as packaged foods (butter, cheese, most namkeen), hair oil, soap, toothpaste, diagnostic kits, and non-AC hotel stays up to ₹7,500 per night.</li>
+                <li><strong>18%:</strong> Most other goods and services, including consumer durables (ACs, TVs, refrigerators, washing machines), small cars, motorcycles (up to 350cc), IT services, banking, and telecommunications.</li>
+                <li><strong>40%:</strong> Luxury and demerit goods like high-end cars, large motorcycles (>350cc), aerated/caffeinated beverages, pan masala, and betting/casino activities.</li>
             </ul>
         </div>
     </div>
+
+    <script src="gst.js"></script>
+</body>
+</html>
